@@ -18,7 +18,7 @@ export const Route = createFileRoute("/donar")({
 const schema = z.object({
   name: z.string().trim().min(2, "Escribe tu nombre").max(100),
   amount: z.coerce.number().min(20, "Mínimo $20").max(100000),
-  card: z.string().replace(/\s/g, "").regex(/^\d{15,16}$/, "Número de tarjeta inválido"),
+  card: z.preprocess((v) => String(v ?? "").replace(/\s/g, ""), z.string().regex(/^\d{15,16}$/, "Número de tarjeta inválido")),
   exp: z.string().regex(/^(0[1-9]|1[0-2])\/\d{2}$/, "Formato MM/AA"),
   cvv: z.string().regex(/^\d{3,4}$/, "CVV inválido"),
 });
