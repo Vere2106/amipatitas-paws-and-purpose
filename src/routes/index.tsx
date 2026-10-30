@@ -227,7 +227,7 @@ function AdoptSheet({ dog, onClose }: { dog: Dog; onClose: () => void }) {
   );
 }
 
-function F({ name, label, type = "text", err, min }: { name: string; label: string; type?: string; err?: string; min?: string }) {
+function F({ name, label, type = "text", err, min }: { name: string; label: string; type?: string; err?: string | undefined; min?: string | undefined }) {
   return (
     <label className="block text-sm font-bold">{label}
       <input name={name} type={type} min={min} className="field mt-1 font-normal" />

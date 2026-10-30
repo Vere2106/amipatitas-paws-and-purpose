@@ -73,6 +73,6 @@ function Donate() {
   );
 }
 
-function L({ label, err, children }: { label: string; err?: string; children: React.ReactNode }) {
+function L({ label, err, children }: { label: string; err?: string | undefined; children: React.ReactNode }) {
   return <label className="block text-sm font-bold">{label}{children}{err && <span className="text-xs font-normal text-destructive">{err}</span>}</label>;
 }
