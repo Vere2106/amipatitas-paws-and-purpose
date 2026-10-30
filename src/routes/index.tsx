@@ -19,7 +19,7 @@ function Adopt() {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<Dog | null>(null);
   const [liked, setLiked] = useState<string[]>([]);
-  const dog = dogs[index % dogs.length];
+  const dog = dogs[index % dogs.length]!;
   const next = () => setIndex((i) => i + 1);
 
   return (
