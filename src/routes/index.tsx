@@ -204,18 +204,18 @@ function AdoptSheet({ dog, onClose }: { dog: Dog; onClose: () => void }) {
                   </button>
                 ))}
               </div>
-              <F name="name" label="Nombre completo" err={errors.name} />
-              <F name="email" label="Correo" type="email" err={errors.email} />
-              <F name="phone" label="Teléfono" type="tel" err={errors.phone} />
-              <F name="address" label="Domicilio" err={errors.address} />
+              <F name="name" label="Nombre completo" err={errors["name"]} />
+              <F name="email" label="Correo" type="email" err={errors["email"]} />
+              <F name="phone" label="Teléfono" type="tel" err={errors["phone"]} />
+              <F name="address" label="Domicilio" err={errors["address"]} />
               <div className="grid grid-cols-2 gap-2">
-                <F name="date" label="Fecha" type="date" min={today} err={errors.date} />
+                <F name="date" label="Fecha" type="date" min={today} err={errors["date"]} />
                 <label className="block text-sm font-bold">Hora
                   <select name="time" className="field mt-1" defaultValue="">
                     <option value="" disabled>Elige</option>
                     {["10:00", "11:00", "12:00", "13:00", "15:00", "16:00", "17:00"].map((t) => <option key={t}>{t}</option>)}
                   </select>
-                  {errors.time && <span className="text-xs text-destructive">{errors.time}</span>}
+                  {errors["time"] && <span className="text-xs text-destructive">{errors["time"]}</span>}
                 </label>
               </div>
               <button className="btn w-full bg-primary text-primary-foreground">Confirmar cita</button>

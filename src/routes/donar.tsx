@@ -57,12 +57,12 @@ function Donate() {
         ) : (
           <form onSubmit={submit} className="space-y-3" noValidate>
             <h2 className="text-2xl font-bold">Hacer un donativo</h2>
-            <L label="Nombre" err={errors.name}><input name="name" className="field mt-1" /></L>
-            <L label="Monto (MXN)" err={errors.amount}><input name="amount" type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} className="field mt-1" /></L>
-            <L label="Número de tarjeta" err={errors.card}><input name="card" inputMode="numeric" placeholder="1234 5678 9012 3456" maxLength={19} className="field mt-1" /></L>
+            <L label="Nombre" err={errors["name"]}><input name="name" className="field mt-1" /></L>
+            <L label="Monto (MXN)" err={errors["amount"]}><input name="amount" type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} className="field mt-1" /></L>
+            <L label="Número de tarjeta" err={errors["card"]}><input name="card" inputMode="numeric" placeholder="1234 5678 9012 3456" maxLength={19} className="field mt-1" /></L>
             <div className="grid grid-cols-2 gap-2">
-              <L label="Vencimiento" err={errors.exp}><input name="exp" placeholder="MM/AA" maxLength={5} className="field mt-1" /></L>
-              <L label="CVV" err={errors.cvv}><input name="cvv" type="password" inputMode="numeric" maxLength={4} className="field mt-1" /></L>
+              <L label="Vencimiento" err={errors["exp"]}><input name="exp" placeholder="MM/AA" maxLength={5} className="field mt-1" /></L>
+              <L label="CVV" err={errors["cvv"]}><input name="cvv" type="password" inputMode="numeric" maxLength={4} className="field mt-1" /></L>
             </div>
             <button className="btn w-full bg-primary text-primary-foreground">Donar {mxn(amount || 0)}</button>
             <p className="text-center text-xs text-muted-foreground">🔒 Modo demostración: no se realiza ningún cargo real.</p>
