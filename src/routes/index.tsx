@@ -23,7 +23,7 @@ function Adopt() {
   const next = () => setIndex((i) => i + 1);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl overflow-x-hidden px-4 py-8">
       <section className="mb-8 grid items-center gap-6 md:grid-cols-[1fr_auto]">
         <div>
           <p className="inline-block rounded-full border-2 border-foreground bg-accent px-3 py-1 text-sm font-bold">Refugio de perritos · CDMX</p>
@@ -144,7 +144,7 @@ const apptSchema = z.object({
   phone: z.string().trim().regex(/^[0-9+\s-]{10,15}$/, "Teléfono de 10 dígitos"),
   address: z.string().trim().min(5, "Escribe tu domicilio").max(250),
   date: z.string().min(1, "Elige una fecha"),
-  time: z.string().min(1, "Elige una hora"),
+  time: z.string().optional().refine((v) => !!v, "Elige una hora"),
 });
 
 function AdoptSheet({ dog, onClose }: { dog: Dog; onClose: () => void }) {
@@ -163,7 +163,7 @@ function AdoptSheet({ dog, onClose }: { dog: Dog; onClose: () => void }) {
       return;
     }
     setErrors({});
-    setDone({ date: r.data.date, time: r.data.time });
+    setDone({ date: r.data.date, time: r.data.time ?? "" });
   };
 
   return (
